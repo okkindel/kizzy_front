@@ -1,0 +1,19 @@
+<wired-card #frame class="container">
+  <h2 class="header">Your quizes</h2>
+
+  <ng-container *ngFor="let quiz of quizes">
+    <wired-card class="quiz" (click)="goToQuiz(quiz.id)">
+      <!-- {{ quiz | json }} -->
+      <h3>{{ quiz.name }}</h3>
+      <b>Started: </b>{{ quiz.started }}
+      <br />
+      <b>Finished: </b>{{ quiz.finished }}
+      <br />
+      <b>Created: </b>{{ quiz.creation_date | date }}
+    </wired-card>
+  </ng-container>
+
+  <div class="buttons">
+    <wired-button routerLink="/home" elevation="3">Go home</wired-button>
+  </div>
+</wired-card>

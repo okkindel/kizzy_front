@@ -1,0 +1,30 @@
+<wired-card #frame class="container">
+  <h2 class="header">Quiz creator</h2>
+
+  <div class="name">
+    <h3>Name:</h3>
+    <wired-input
+      placeholder="Quiz Name"
+      [(ngModel)]="quiz.name"
+      ngDefaultControl
+    ></wired-input>
+  </div>
+
+  <div class="creator">
+    <h3>Questions:</h3>
+    <ng-container *ngFor="let question of quiz.questions; let last = last">
+      <div>
+        <app-answer
+          [question]="question"
+          (wasDeleted)="deleteQuestion(question)"
+        ></app-answer>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="buttons">
+    <wired-button routerLink="/home">Go back</wired-button>
+    <wired-button (click)="addNewQuestion()">Add another question</wired-button>
+    <wired-button (click)="create()" elevation="3">Create quiz</wired-button>
+  </div>
+</wired-card>

@@ -1,0 +1,28 @@
+.summary {
+  transform: translate(-50%, -50%);
+  padding: 1.5rem 2rem 2rem 2rem;
+  background: white;
+  position: absolute;
+  width: 30%;
+  left: 50%;
+  top: 50%;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__container {
+    text-align: center;
+  }
+  
+  &__buttons {
+    text-align: center;
+    margin-top: 1rem;
+    wired-button {
+      margin-left: 0.5rem;
+      span {
+        padding: 7.5px;
+      }
+    }
+  }
+}

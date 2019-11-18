@@ -1,0 +1,77 @@
+:host {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  background: white;
+  min-height: 70vh;
+  margin: 10vh 0;
+  padding: 2rem;
+  width: 70%;
+
+  .header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .tank {
+    min-height: 55vh;
+    flex-flow: row;
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    &__left {
+      text-align: center;
+      padding: 1rem;
+      width: 30%;
+
+      wired-divider {
+        margin: 1rem 0;
+      }
+
+      wired-button {
+        margin: 0.5rem;
+      }
+    }
+
+    &__middle {
+      margin-left: 1rem;
+      padding: 0 0.5rem;
+      width: 15%;
+
+      .inner {
+        height: 100%;
+        width: 100%;
+      }
+
+      .tabs {
+        height: calc(100% - 37px);
+        width: 100%;
+      }
+    }
+
+    &__right {
+      margin-left: 1rem;
+      padding: 0 0.5rem;
+      width: 55%;
+    }
+  }
+
+  .empty {
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    display: flex;
+
+    wired-button {
+      margin: 10px;
+    }
+  }
+}

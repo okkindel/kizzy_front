@@ -1,0 +1,78 @@
+<wired-card #frame class="container">
+  <h2 class="header">{{ quiz.name }}</h2>
+
+  <div class="tank">
+    <div class="tank__left">
+      <qr-code *ngIf="quiz" [value]="quiz.access_token" [size]="150"></qr-code>
+      <br />
+      <b>Access token:</b>
+      <br />
+      {{ quiz.access_token }}
+
+      <wired-divider></wired-divider>
+
+      <b>Created: {{ quiz.creation_date | date }}</b>
+
+      <wired-divider></wired-divider>
+
+      <wired-button
+        (click)="startQuiz()"
+        [disabled]="quiz.started"
+        elevation="1"
+      >
+        Start quiz
+      </wired-button>
+      <wired-button
+        (click)="finishQuiz()"
+        [disabled]="quiz.finished"
+        elevation="1"
+      >
+        End quiz
+      </wired-button>
+      <wired-button
+        (click)="deleteQuiz()"
+        elevation="1"
+      >
+        Delete quiz
+      </wired-button>
+    </div>
+
+    <div class="tank__middle">
+      <wired-card
+        *ngIf="report.users && report.users.length === 0; else users"
+        class="inner empty"
+      >
+        <br />
+        No user data...
+      </wired-card>
+    </div>
+
+    <wired-card class="tank__right">
+      <div *ngIf="!selectedUser; else user" class="empty">
+        <br />
+        Click on user to show details...
+      </div>
+    </wired-card>
+  </div>
+
+  <div class="buttons">
+    <wired-button routerLink="/home" elevation="1">Go home</wired-button>
+    <wired-button routerLink="/quizes" elevation="3"
+      >Back to quizes</wired-button
+    >
+  </div>
+</wired-card>
+
+<ng-template #users>
+  <h3>Users:</h3>
+  <wired-listbox (selected)="selectUser($event.detail.selected)" class="tabs">
+    <ng-container *ngFor="let user of report.users">
+      <wired-item value="{{ user.id }}">{{ user.name }}</wired-item>
+      <wired-divider></wired-divider>
+    </ng-container>
+  </wired-listbox>
+</ng-template>
+
+<ng-template #user>
+  <app-quiz-summary [userData]="userReport$ | async"></app-quiz-summary>
+</ng-template>

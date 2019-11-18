@@ -1,0 +1,44 @@
+<div class="container">
+  <wired-input
+    placeholder="Type question here"
+    [(ngModel)]="question.question"
+    name="question.question"
+    ngDefaultControl
+    class="question"
+  ></wired-input>
+
+  <ng-container *ngFor="let answer of question.answers">
+    <div class="answer">
+      <wired-input
+        placeholder="Type answer here"
+        [(ngModel)]="answer.value"
+        name="answer.value"
+        ngDefaultControl
+      ></wired-input>
+
+      <wired-icon-button (click)="deleteAnswer(answer.id)">
+        <i class="material-icons">close</i>
+      </wired-icon-button>
+    </div>
+  </ng-container>
+
+  <div class="answer">
+    <wired-input [disabled]="true"></wired-input>
+    <wired-icon-button (click)="addNewAnswer()">
+      <i class="material-icons">add</i>
+    </wired-icon-button>
+  </div>
+
+  <ng-container *ngIf="question.answers.length > 1">
+    Select proper answer:
+    <wired-combo
+      id="combo"
+      (selected)="selectedOption($event.detail.selected)"
+      [selected]="'1'"
+    >
+      <ng-container *ngFor="let answer of question.answers">
+        <wired-item value="{{ answer.id }}">{{ answer.value }}</wired-item>
+      </ng-container>
+    </wired-combo>
+  </ng-container>
+</div>

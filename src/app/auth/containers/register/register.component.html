@@ -1,0 +1,71 @@
+<wired-card elevation="3" class="register-form">
+  <h2 class="register-form__header">Register form</h2>
+  <form [formGroup]="registerForm">
+    <!-- IMPUT -->
+    <div class="register-form__container">
+      <label>
+        Email
+        <br />
+        <wired-input
+          [ngClass]="{
+            'not-valid':
+              !registerForm.get('email').valid &&
+              registerForm.get('email').touched
+          }"
+          placeholder="Enter your email"
+          formControlName="email"
+          ngDefaultControl
+          email
+        >
+        </wired-input>
+      </label>
+
+      <label>
+        Password
+        <br />
+        <wired-input
+          [ngClass]="{
+            'not-valid':
+              !registerForm.get('password').valid &&
+              registerForm.get('password').touched
+          }"
+          placeholder="Enter your password"
+          formControlName="password"
+          ngDefaultControl
+          type="password"
+        >
+        </wired-input>
+      </label>
+
+      <label>
+        Repeat Password
+        <br />
+        <wired-input
+          [ngClass]="{
+            'not-valid':
+              registerForm.get('repassword').value !==
+              registerForm.get('password').value
+          }"
+          placeholder="Re-enter your password"
+          formControlName="repassword"
+          ngDefaultControl
+          type="password"
+        >
+        </wired-input>
+      </label>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="register-form__buttons">
+      <wired-button (click)="goToLogin()"
+        ><span>Back to login</span></wired-button
+      >
+      <wired-button
+        (click)="register()"
+        elevation="3"
+        [disabled]="isRegistering"
+        ><span>Register</span></wired-button
+      >
+    </div>
+  </form>
+</wired-card>

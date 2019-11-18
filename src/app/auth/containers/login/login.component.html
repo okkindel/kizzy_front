@@ -1,0 +1,50 @@
+<wired-card elevation="3" class="login-form">
+  <h2 class="login-form__header">Login form</h2>
+  <form [formGroup]="loginForm">
+    <!-- IMPUT -->
+    <div class="login-form__container">
+      <label>
+        Email
+        <br />
+        <wired-input
+          [ngClass]="{
+            'not-valid':
+              !loginForm.get('email').valid && loginForm.get('email').touched
+          }"
+          placeholder="Enter your email"
+          formControlName="email"
+          ngDefaultControl
+          email
+        >
+        </wired-input>
+      </label>
+
+      <label>
+        Password
+        <br />
+        <wired-input
+          [ngClass]="{
+            'not-valid':
+              !loginForm.get('password').valid &&
+              loginForm.get('password').touched
+          }"
+          placeholder="Enter your password"
+          formControlName="password"
+          type="password"
+          ngDefaultControl
+        >
+        </wired-input>
+      </label>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="login-form__buttons">
+      <wired-button (click)="goToRegister()"
+        ><span>Register</span></wired-button
+      >
+      <wired-button (click)="login()" elevation="3" [disabled]="isLoggingIn"
+        ><span>Login</span></wired-button
+      >
+    </div>
+  </form>
+</wired-card>

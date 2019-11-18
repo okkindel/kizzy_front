@@ -1,0 +1,46 @@
+:host {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  background: white;
+  min-height: 70vh;
+  margin: 10vh 0;
+  padding: 2rem;
+  width: 70%;
+
+  .header {
+    text-align: center;
+  }
+
+  .name {
+    margin-top: 2rem;
+    wired-input {
+      width: calc(100% - 1rem);
+    }
+  }
+
+  .creator {
+    margin: 2rem 0;
+
+    div {
+      border: 1px grey dashed;
+      width: calc(50% - 2rem - 2px);
+      display: inline-block;
+      padding: 0.5rem;
+      margin: 0.5rem;
+    }
+  }
+
+  .buttons {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    wired-button {
+      margin: 10px;
+    }
+  }
+}

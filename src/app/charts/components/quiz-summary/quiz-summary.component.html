@@ -1,0 +1,12 @@
+<div class="container" *ngIf="data.user">
+  <h3>{{ data.user.name }}</h3>
+  <b>Points:</b> {{ points }}
+  <wired-divider></wired-divider>
+  <div class="card" *ngFor="let answer of data.answers">
+    <b>Question:</b> {{ answer.question }}
+    <br />
+    <b>Answer:</b> {{ answer.answer }}
+    <br />
+    <b>Correct:</b> {{ answer.is_correct }}
+  </div>
+</div>

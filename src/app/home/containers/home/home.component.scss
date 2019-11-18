@@ -1,0 +1,43 @@
+.container {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  .menu {
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    display: flex;
+
+    wired-card {
+      margin: 0.5rem;
+      padding: 2rem;
+    }
+
+    wired-card:hover {
+      cursor: pointer;
+    }
+  }
+
+  .header,
+  .footer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .footer {
+    margin-top: 2rem;
+    wired-button {
+      color: rgb(100, 0, 0);
+      span {
+        padding: 10px;
+      }
+    }
+  }
+}

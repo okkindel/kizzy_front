@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="logo">
+    <img src="../../../../assets/logo.png" />
+  </div>
+  
+  <div class="menu">
+    <wired-card
+    [elevation]="leftButtonElevation"
+      (mouseover)="leftButtonElevation = 2"
+      (mouseleave)="leftButtonElevation = 1"
+      (click)="goToCreator()"
+      >
+      <p>Create new quiz</p>
+    </wired-card>
+
+    <wired-card
+    [elevation]="rightButtonElevation"
+    (mouseover)="rightButtonElevation = 2"
+      (mouseleave)="rightButtonElevation = 1"
+      (click)="goToQuizes()"
+      >
+      <p>Browse your quizes</p>
+    </wired-card>
+  </div>
+  
+  <div class="footer">
+    <wired-button (click)="logout()"><span>Log {{ user }} out</span></wired-button>
+  </div>
+</div>

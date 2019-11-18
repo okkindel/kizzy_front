@@ -1,0 +1,21 @@
+<wired-card elevation="3" class="summary">
+  <h2 class="summary__header">Summary</h2>
+
+  <div class="summary__container">
+    <br />
+    <qr-code [value]="quizData.access_token" [size]="150"></qr-code>
+    <br />
+    <b>Access token:</b>
+    {{ quizData.access_token }}
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="summary__buttons">
+    <wired-button (click)="goToSummary()" elevation="1">
+      Go to quiz showcase
+    </wired-button>
+    <wired-button (click)="start()" elevation="3">
+      Start quiz
+    </wired-button>
+  </div>
+</wired-card>
